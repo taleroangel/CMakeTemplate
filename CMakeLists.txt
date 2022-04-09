@@ -29,18 +29,17 @@ configure_file(
     "${CMAKE_SOURCE_DIR}/include/cmake_config.h.in" "${CMAKE_SOURCE_DIR}/include/cmake_config.h"
 )
 
-# Append modules path
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
-
-# Recursive source files
-file(GLOB_RECURSE SRC_FILES "src/*.cpp")
+# Append sources
+file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
 
 # Add main executable and source files
 add_executable(
-    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/src/main.cpp" ${SRC_FILES}
+    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/source/main.cpp" ${SRC_FILES}
     )
 
 # Include directory
 target_include_directories(
-    ${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/include"
+  ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+                         $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
