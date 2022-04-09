@@ -13,7 +13,7 @@ endif()
 # Project name and Description
 project(
     "PROJNAME"
-    VERSION 2.0.1
+    VERSION 0.1.0
     DESCRIPTION "Brief CMake project Description"
     HOMEPAGE_URL "https://github.com/taleroangel"
     LANGUAGES CXX
@@ -42,5 +42,4 @@ add_executable(
 # Include directory
 target_include_directories(
   ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-                         $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
