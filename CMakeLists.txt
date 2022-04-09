@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Configure file
 configure_file(
-    "${CMAKE_SOURCE_DIR}/include/CMakeConfig.h.in" "${CMAKE_SOURCE_DIR}/include/CMakeConfig.h"
+    "${CMAKE_SOURCE_DIR}/include/cmake_config.h.in" "${CMAKE_SOURCE_DIR}/include/cmake_config.h"
 )
 
 # Append modules path
