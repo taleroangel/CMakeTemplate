@@ -2,7 +2,7 @@
 #   GitHub: @taleroangel
 
 # Minimum required version of CMake
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.15)
 
 # Make sure project is not built in the root directory
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
@@ -22,6 +22,7 @@ project(
 # Specify C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Configure file
 configure_file(
@@ -36,7 +37,7 @@ file(GLOB_RECURSE SRC_FILES "src/*.cpp")
 
 # Add main executable and source files
 add_executable(
-    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}.cpp" ${SRC_FILES}
+    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/src/main.cpp" ${SRC_FILES}
     )
 
 # Include directory
