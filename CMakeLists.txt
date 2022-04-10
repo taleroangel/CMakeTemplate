@@ -30,14 +30,17 @@ configure_file(
 )
 
 # Append sources
-file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
-file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
 
 # Add main executable and source files
 add_executable(
-    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/source/main.cpp" ${SRC_FILES}
-    )
+    ${PROJECT_NAME} "${CMAKE_SOURCE_DIR}/source/main.cpp"
+)
+   
+# Add sources
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCES})
 
 # Include directory
 target_include_directories(
