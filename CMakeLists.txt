@@ -24,6 +24,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Append ./cmake directory to our include paths for the find_package scripts
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 # Configure file
 configure_file(
     "${CMAKE_SOURCE_DIR}/include/cmake_config.h.in" "${CMAKE_SOURCE_DIR}/include/cmake_config.h"
